@@ -1,6 +1,6 @@
 "use strict";
 var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
+    __assign = Object.assign || function (t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -20,8 +20,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    var _ = { label: 0, sent: function () { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function () { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
@@ -56,29 +56,31 @@ var SlashCommands = /** @class */ (function () {
         this._client = instance.client;
         if (listen) {
             // @ts-ignore
-            this._client.ws.on("INTERACTION_CREATE", function (interaction) { return __awaiter(_this, void 0, void 0, function () {
-                var member, data, guild_id, channel_id, type, user, Appdata, name, options, resolved, guild, args, channel;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            member = interaction.member, data = interaction.data, guild_id = interaction.guild_id, channel_id = interaction.channel_id, type = interaction.type, user = interaction.user;
-                            if (!(type === 1)) return [3 /*break*/, 2];
-                            return [4 /*yield*/, this.createInteractionResponse(interaction, 1)];
-                        case 1:
-                            _a.sent();
-                            return [2 /*return*/];
-                        case 2:
-                            Appdata = data;
-                            name = Appdata.name, options = Appdata.options, resolved = Appdata.resolved;
-                            guild = guild_id ? this._client.guilds.cache.get(guild_id) : undefined;
-                            args = this.getArrayFromOptions(guild, name, options, resolved);
-                            channel = channel_id ? guild === null || guild === void 0 ? void 0 : guild.channels.cache.get(channel_id) : undefined;
-                            interaction.channel_type = user ? "DM" : "GUILD";
-                            this.invokeCommand(interaction, name, args, member, guild, channel, Appdata);
-                            return [2 /*return*/];
-                    }
+            this._client.ws.on("INTERACTION_CREATE", function (interaction) {
+                return __awaiter(_this, void 0, void 0, function () {
+                    var member, data, guild_id, channel_id, type, user, Appdata, name, options, resolved, guild, args, channel;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                member = interaction.member, data = interaction.data, guild_id = interaction.guild_id, channel_id = interaction.channel_id, type = interaction.type, user = interaction.user;
+                                if (!(type === 1)) return [3 /*break*/, 2];
+                                return [4 /*yield*/, this.createInteractionResponse(interaction, 1)];
+                            case 1:
+                                _a.sent();
+                                return [2 /*return*/];
+                            case 2:
+                                Appdata = data;
+                                name = Appdata.name, options = Appdata.options, resolved = Appdata.resolved;
+                                guild = guild_id ? this._client.guilds.cache.get(guild_id) : undefined;
+                                args = this.getArrayFromOptions(guild, name, options, resolved);
+                                channel = channel_id ? guild === null || guild === void 0 ? void 0 : guild.channels.cache.get(channel_id) : undefined;
+                                interaction.channel_type = user ? "DM" : "GUILD";
+                                this.invokeCommand(interaction, name, args, member, guild, channel, Appdata);
+                                return [2 /*return*/];
+                        }
+                    });
                 });
-            }); });
+            });
         }
     }
     SlashCommands.prototype.getCommands = function (guildId) {
@@ -108,8 +110,8 @@ var SlashCommands = /** @class */ (function () {
                             app.guilds(guildId);
                         }
                         return [4 /*yield*/, app.commands.post({
-                                data: data
-                            })];
+                            data: data
+                        })];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
@@ -383,8 +385,8 @@ var SlashCommands = /** @class */ (function () {
                     case 0: return [4 /*yield*/, discord_js_1.APIMessage.create(
                         // @ts-ignore
                         this._client.channels.resolve(interaction.channel_id), content)
-                            .resolveData()
-                            .resolveFiles()];
+                        .resolveData()
+                        .resolveFiles()];
                     case 1:
                         _a = _b.sent(), data = _a.data, files = _a.files;
                         return [2 /*return*/, __assign(__assign({}, data), { files: files })];
@@ -397,9 +399,9 @@ var SlashCommands = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.getInteractionResponse({ token: token, application_id: application_id })];
-                    case 1: 
-                    // @ts-ignore
-                    return [2 /*return*/, _a.sent()];
+                    case 1:
+                        // @ts-ignore
+                        return [2 /*return*/, _a.sent()];
                 }
             });
         });
@@ -409,9 +411,9 @@ var SlashCommands = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.deleteInteractionResponse({ token: token, application_id: application_id })];
-                    case 1: 
-                    // @ts-ignore
-                    return [2 /*return*/, _a.sent()];
+                    case 1:
+                        // @ts-ignore
+                        return [2 /*return*/, _a.sent()];
                 }
             });
         });
@@ -428,12 +430,12 @@ var SlashCommands = /** @class */ (function () {
                         }
                         Send.data = data;
                         return [4 /*yield*/, this._client.api
-                                // @ts-ignore
-                                .interactions(interaction.id, interaction.token)
-                                .callback.post({ data: Send })];
-                    case 1: 
-                    // @ts-ignore
-                    return [2 /*return*/, _a.sent()];
+                            // @ts-ignore
+                            .interactions(interaction.id, interaction.token)
+                            .callback.post({ data: Send })];
+                    case 1:
+                        // @ts-ignore
+                        return [2 /*return*/, _a.sent()];
                 }
             });
         });
@@ -443,12 +445,12 @@ var SlashCommands = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this._client.api
-                            // @ts-ignore
-                            .webhooks(interaction.application_id, interaction.token)
-                            .messages["@original"].get()];
-                    case 1: 
-                    // @ts-ignore
-                    return [2 /*return*/, _a.sent()];
+                        // @ts-ignore
+                        .webhooks(interaction.application_id, interaction.token)
+                        .messages["@original"].get()];
+                    case 1:
+                        // @ts-ignore
+                        return [2 /*return*/, _a.sent()];
                 }
             });
         });
@@ -458,12 +460,12 @@ var SlashCommands = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this._client.api
-                            // @ts-ignore
-                            .webhooks(interaction.application_id, interaction.token)
-                            .messages["@original"].patch({ data: data })];
-                    case 1: 
-                    // @ts-ignore
-                    return [2 /*return*/, _a.sent()];
+                        // @ts-ignore
+                        .webhooks(interaction.application_id, interaction.token)
+                        .messages["@original"].patch({ data: data })];
+                    case 1:
+                        // @ts-ignore
+                        return [2 /*return*/, _a.sent()];
                 }
             });
         });
@@ -474,12 +476,12 @@ var SlashCommands = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this._client.api
-                            // @ts-ignore
-                            .webhooks(interaction.application_id, interaction.token)
-                            .messages["@original"].delete()];
-                    case 1: 
-                    // @ts-ignore
-                    return [2 /*return*/, _a.sent()];
+                        // @ts-ignore
+                        .webhooks(interaction.application_id, interaction.token)
+                        .messages["@original"].delete()];
+                    case 1:
+                        // @ts-ignore
+                        return [2 /*return*/, _a.sent()];
                 }
             });
         });
@@ -493,12 +495,12 @@ var SlashCommands = /** @class */ (function () {
                             data.flags = 64;
                         }
                         return [4 /*yield*/, this._client.api
-                                // @ts-ignore
-                                .webhooks(interaction.application_id, interaction.token)
-                                .post({ data: data })];
-                    case 1: 
-                    // @ts-ignore
-                    return [2 /*return*/, _a.sent()];
+                            // @ts-ignore
+                            .webhooks(interaction.application_id, interaction.token)
+                            .post({ data: data })];
+                    case 1:
+                        // @ts-ignore
+                        return [2 /*return*/, _a.sent()];
                 }
             });
         });
@@ -508,12 +510,12 @@ var SlashCommands = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this._client.api
-                            // @ts-ignore
-                            .webhooks(interaction.application_id, interaction.token)
-                            .messages(message.id).patch({ data: data })];
-                    case 1: 
-                    // @ts-ignore
-                    return [2 /*return*/, _a.sent()];
+                        // @ts-ignore
+                        .webhooks(interaction.application_id, interaction.token)
+                        .messages(message.id).patch({ data: data })];
+                    case 1:
+                        // @ts-ignore
+                        return [2 /*return*/, _a.sent()];
                 }
             });
         });
@@ -524,18 +526,18 @@ var SlashCommands = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this._client.api
-                            // @ts-ignore
-                            .webhooks(interaction.application_id, interaction.token)
-                            .messages(message.id).delete()];
-                    case 1: 
-                    // @ts-ignore
-                    return [2 /*return*/, _a.sent()];
+                        // @ts-ignore
+                        .webhooks(interaction.application_id, interaction.token)
+                        .messages(message.id).delete()];
+                    case 1:
+                        // @ts-ignore
+                        return [2 /*return*/, _a.sent()];
                 }
             });
         });
     };
     SlashCommands.prototype.invokeCommand = function (interaction, commandName, options, //parsed args
-    member, guild, channel, rawArgs) {
+        member, guild, channel, rawArgs) {
         return __awaiter(this, void 0, void 0, function () {
             var command, result, patch, embed, _a;
             var _this = this;
@@ -547,108 +549,119 @@ var SlashCommands = /** @class */ (function () {
                             return [2 /*return*/, false];
                         }
                         interaction.status = {};
-                        interaction.delete = function () { return __awaiter(_this, void 0, void 0, function () {
-                            var respond;
-                            return __generator(this, function (_a) {
-                                switch (_a.label) {
-                                    case 0: return [4 /*yield*/, this.deleteInteractionResponse(interaction)];
-                                    case 1:
-                                        respond = _a.sent();
-                                        interaction.status.deletet = true;
-                                        return [2 /*return*/, respond];
-                                }
+                        interaction.delete = function () {
+                            return __awaiter(_this, void 0, void 0, function () {
+                                var respond;
+                                return __generator(this, function (_a) {
+                                    switch (_a.label) {
+                                        case 0: return [4 /*yield*/, this.deleteInteractionResponse(interaction)];
+                                        case 1:
+                                            respond = _a.sent();
+                                            interaction.status.deletet = true;
+                                            return [2 /*return*/, respond];
+                                    }
+                                });
                             });
-                        }); };
-                        interaction.loading = function () { return __awaiter(_this, void 0, void 0, function () {
-                            var respond, respondMessage;
-                            return __generator(this, function (_a) {
-                                switch (_a.label) {
-                                    case 0: return [4 /*yield*/, this.createInteractionResponse(interaction, 5)];
-                                    case 1:
-                                        respond = _a.sent();
-                                        interaction.status.loaded = true;
-                                        return [4 /*yield*/, this.getInteractionResponse(interaction)];
-                                    case 2:
-                                        respondMessage = _a.sent();
-                                        return [2 /*return*/, respondMessage];
-                                }
+                        };
+                        interaction.loading = function () {
+                            return __awaiter(_this, void 0, void 0, function () {
+                                var respond, respondMessage;
+                                return __generator(this, function (_a) {
+                                    switch (_a.label) {
+                                        case 0: return [4 /*yield*/, this.createInteractionResponse(interaction, 5)];
+                                        case 1:
+                                            respond = _a.sent();
+                                            interaction.status.loaded = true;
+                                            return [4 /*yield*/, this.getInteractionResponse(interaction)];
+                                        case 2:
+                                            respondMessage = _a.sent();
+                                            return [2 /*return*/, respondMessage];
+                                    }
+                                });
                             });
-                        }); };
-                        interaction.reply = function (data) { return __awaiter(_this, void 0, void 0, function () {
-                            var DataToSend, respond, DataToSend, respond, respondMessage;
-                            return __generator(this, function (_a) {
-                                switch (_a.label) {
-                                    case 0:
-                                        if (!interaction.status.loaded) return [3 /*break*/, 2];
-                                        DataToSend = void 0;
-                                        //TODO enable support for also passing an embed as data
-                                        if (typeof data === "string") {
-                                            DataToSend = { content: data };
-                                        }
-                                        else {
-                                            DataToSend = data;
-                                        }
-                                        return [4 /*yield*/, this.editInteractionResponse(interaction, DataToSend)];
-                                    case 1:
-                                        respond = _a.sent();
-                                        interaction.status.send = true;
-                                        return [2 /*return*/, respond];
-                                    case 2:
-                                        if (!!interaction.status.send) return [3 /*break*/, 5];
-                                        DataToSend = void 0;
-                                        //TODO enable support for also passing an embed as data
-                                        if (typeof data === "string") {
-                                            DataToSend = { content: data };
-                                        }
-                                        else {
-                                            DataToSend = data;
-                                        }
-                                        return [4 /*yield*/, this.createInteractionResponse(interaction, 4, DataToSend)];
-                                    case 3:
-                                        respond = _a.sent();
-                                        interaction.status.send = true;
-                                        return [4 /*yield*/, this.getInteractionResponse(interaction)];
-                                    case 4:
-                                        respondMessage = _a.sent();
-                                        return [2 /*return*/, respondMessage];
-                                    case 5:
-                                        console.error("WOKCommands > Interaction \"" + interaction.id + "\" loaded and send the message already");
-                                        return [2 /*return*/, Promise.reject("WOKCommands > Interaction \"" + interaction.id + "\" loaded and send the message already")];
-                                }
+                        };
+                        interaction.reply = function (data) {
+                            return __awaiter(_this, void 0, void 0, function () {
+                                var DataToSend, respond, DataToSend, respond, respondMessage;
+                                return __generator(this, function (_a) {
+                                    switch (_a.label) {
+                                        case 0:
+                                            if (!interaction.status.loaded) return [3 /*break*/, 2];
+                                            DataToSend = void 0;
+                                            //TODO actually do this in typescript because i dont know how typscript types and stuff works
+                                            if (typeof data === "string") {
+                                                DataToSend = { content: data };
+                                            } else if (typeof data === "object") {
+                                                DataToSend = { embeds: [data] };
+                                            } else {
+                                                DataToSend = data;
+                                            }
+                                            return [4 /*yield*/, this.editInteractionResponse(interaction, DataToSend)];
+                                        case 1:
+                                            respond = _a.sent();
+                                            interaction.status.send = true;
+                                            return [2 /*return*/, respond];
+                                        case 2:
+                                            if (!!interaction.status.send) return [3 /*break*/, 5];
+                                            DataToSend = void 0;
+                                            //TODO actually do this in typescript because i dont know how typscript types and stuff works
+                                            if (typeof data === "string") {
+                                                DataToSend = { content: data };
+                                            } else if (typeof data === "object") {
+                                                DataToSend = { embeds: [data] };
+                                            } else {
+                                                DataToSend = data;
+                                            }
+                                            return [4 /*yield*/, this.createInteractionResponse(interaction, 4, DataToSend)];
+                                        case 3:
+                                            respond = _a.sent();
+                                            interaction.status.send = true;
+                                            return [4 /*yield*/, this.getInteractionResponse(interaction)];
+                                        case 4:
+                                            respondMessage = _a.sent();
+                                            return [2 /*return*/, respondMessage];
+                                        case 5:
+                                            console.error("WOKCommands > Interaction \"" + interaction.id + "\" loaded and send the message already");
+                                            return [2 /*return*/, Promise.reject("WOKCommands > Interaction \"" + interaction.id + "\" loaded and send the message already")];
+                                    }
+                                });
                             });
-                        }); };
-                        interaction.edit = function (data) { return __awaiter(_this, void 0, void 0, function () {
-                            var DataToSend, respond;
-                            return __generator(this, function (_a) {
-                                switch (_a.label) {
-                                    case 0:
-                                        //TODO enable support for also passing an embed as data
-                                        if (typeof data === "string") {
-                                            DataToSend = { content: data };
-                                        }
-                                        else {
-                                            DataToSend = data;
-                                        }
-                                        return [4 /*yield*/, this.editInteractionResponse(interaction, DataToSend)];
-                                    case 1:
-                                        respond = _a.sent();
-                                        interaction.status.send = true;
-                                        return [2 /*return*/, respond];
-                                }
+                        };
+                        interaction.edit = function (data) {
+                            return __awaiter(_this, void 0, void 0, function () {
+                                var DataToSend, respond;
+                                return __generator(this, function (_a) {
+                                    switch (_a.label) {
+                                        case 0:
+                                            //TODO actually do this in typescript because i dont know how typscript types and stuff works
+                                            if (typeof data === "string") {
+                                                DataToSend = { content: data };
+                                            } else if (typeof data === "object") {
+                                                DataToSend = { embeds: [data] };
+                                            } else {
+                                                DataToSend = data;
+                                            }
+                                            return [4 /*yield*/, this.editInteractionResponse(interaction, DataToSend)];
+                                        case 1:
+                                            respond = _a.sent();
+                                            interaction.status.send = true;
+                                            return [2 /*return*/, respond];
+                                    }
+                                });
                             });
-                        }); };
+                        };
                         interaction.followUpMessages = { create: this.createFollowupMessage, delete: this.deleteFollowupMessage, edit: this.editFollowupMessage };
                         return [4 /*yield*/, command.callback({
-                                member: member,
-                                guild: guild,
-                                channel: channel,
-                                args: options,
-                                slash: true,
-                                rawArgs: rawArgs,
-                                client: this._client,
-                                instance: this._instance,
-                                interaction: interaction,
-                            })];
+                            member: member,
+                            guild: guild,
+                            channel: channel,
+                            args: options,
+                            slash: true,
+                            rawArgs: rawArgs,
+                            client: this._client,
+                            instance: this._instance,
+                            interaction: interaction,
+                        })];
                     case 1:
                         result = _b.sent();
                         if (interaction.status.send) {
@@ -695,9 +708,11 @@ var SlashCommands = /** @class */ (function () {
         var _values = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         var response = 3;
         var _names = ["SUB_COMMAND", "SUB_COMMAND_GROUP", "STRING", "INTEGER", "BOOLEAN", "USER", "CHANNEL", "ROLE", "MENTIONABLE"];
-        _names.forEach(function (_name, i) { if (_name == name.toUpperCase()) {
-            response = _values[i];
-        } });
+        _names.forEach(function (_name, i) {
+            if (_name == name.toUpperCase()) {
+                response = _values[i];
+            }
+        });
         // @ts-ignore
         return response;
     };
