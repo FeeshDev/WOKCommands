@@ -9,8 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    var _ = { label: 0, sent: function () { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function () { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
@@ -124,14 +124,14 @@ var CommandHandler = /** @class */ (function () {
                             message
                                 .reply(instance.messageHandler.get(guild, "DISABLED_COMMAND"))
                                 .then(function (message) {
-                                console.log(instance.del);
-                                if (instance.del === -1) {
-                                    return;
-                                }
-                                setTimeout(function () {
-                                    message.delete();
-                                }, 1000 * instance.del);
-                            });
+                                    console.log(instance.del);
+                                    if (instance.del === -1) {
+                                        return;
+                                    }
+                                    setTimeout(function () {
+                                        message.delete();
+                                    }, 1000 * instance.del);
+                                });
                         }
                         return;
                     }
@@ -156,16 +156,16 @@ var CommandHandler = /** @class */ (function () {
                             else {
                                 message
                                     .reply(instance.messageHandler.get(guild, "MISSING_PERMISSION", {
-                                    PERM: perm,
-                                }))
+                                        PERM: perm,
+                                    }))
                                     .then(function (message) {
-                                    if (instance.del === -1) {
-                                        return;
-                                    }
-                                    setTimeout(function () {
-                                        message.delete();
-                                    }, 1000 * instance.del);
-                                });
+                                        if (instance.del === -1) {
+                                            return;
+                                        }
+                                        setTimeout(function () {
+                                            message.delete();
+                                        }, 1000 * instance.del);
+                                    });
                             }
                             return;
                         }
@@ -195,16 +195,16 @@ var CommandHandler = /** @class */ (function () {
                             else {
                                 message
                                     .reply(instance.messageHandler.get(guild, "MISSING_ROLES", {
-                                    ROLES: missingRolesNames.join(", "),
-                                }))
+                                        ROLES: missingRolesNames.join(", "),
+                                    }))
                                     .then(function (message) {
-                                    if (instance.del === -1) {
-                                        return;
-                                    }
-                                    setTimeout(function () {
-                                        message.delete();
-                                    }, 1000 * instance.del);
-                                });
+                                        if (instance.del === -1) {
+                                            return;
+                                        }
+                                        setTimeout(function () {
+                                            message.delete();
+                                        }, 1000 * instance.del);
+                                    });
                             }
                             return;
                         }
@@ -292,40 +292,42 @@ var CommandHandler = /** @class */ (function () {
             });
             // If we cannot connect to a database then ensure all cooldowns are less than 5m
             instance.on(Events_1.default.DATABASE_CONNECTED, function (connection, state) {
-                _this._commands.forEach(function (command) { return __awaiter(_this, void 0, void 0, function () {
-                    var connected, results, _i, results_1, _a, _id, cooldown_2, _b, name_1, guildId, userId;
-                    return __generator(this, function (_c) {
-                        switch (_c.label) {
-                            case 0:
-                                connected = state === "Connected";
-                                command.verifyDatabaseCooldowns(connected);
-                                if (!connected) {
-                                    return [2 /*return*/];
-                                }
-                                // Load previously used cooldowns
-                                return [4 /*yield*/, this.fetchDisabledCommands()];
-                            case 1:
-                                // Load previously used cooldowns
-                                _c.sent();
-                                return [4 /*yield*/, this.fetchRequiredRoles()];
-                            case 2:
-                                _c.sent();
-                                return [4 /*yield*/, cooldown_1.default.find({
+                _this._commands.forEach(function (command) {
+                    return __awaiter(_this, void 0, void 0, function () {
+                        var connected, results, _i, results_1, _a, _id, cooldown_2, _b, name_1, guildId, userId;
+                        return __generator(this, function (_c) {
+                            switch (_c.label) {
+                                case 0:
+                                    connected = state === "Connected";
+                                    command.verifyDatabaseCooldowns(connected);
+                                    if (!connected) {
+                                        return [2 /*return*/];
+                                    }
+                                    // Load previously used cooldowns
+                                    return [4 /*yield*/, this.fetchDisabledCommands()];
+                                case 1:
+                                    // Load previously used cooldowns
+                                    _c.sent();
+                                    return [4 /*yield*/, this.fetchRequiredRoles()];
+                                case 2:
+                                    _c.sent();
+                                    return [4 /*yield*/, cooldown_1.default.find({
                                         name: command.names[0],
                                         type: command.globalCooldown ? "global" : "per-user",
                                     })];
-                            case 3:
-                                results = _c.sent();
-                                // @ts-ignore
-                                for (_i = 0, results_1 = results; _i < results_1.length; _i++) {
-                                    _a = results_1[_i], _id = _a._id, cooldown_2 = _a.cooldown;
-                                    _b = _id.split("-"), name_1 = _b[0], guildId = _b[1], userId = _b[2];
-                                    command.setCooldown(guildId, userId, cooldown_2);
-                                }
-                                return [2 /*return*/];
-                        }
+                                case 3:
+                                    results = _c.sent();
+                                    // @ts-ignore
+                                    for (_i = 0, results_1 = results; _i < results_1.length; _i++) {
+                                        _a = results_1[_i], _id = _a._id, cooldown_2 = _a.cooldown;
+                                        _b = _id.split("-"), name_1 = _b[0], guildId = _b[1], userId = _b[2];
+                                        command.setCooldown(guildId, userId, cooldown_2);
+                                    }
+                                    return [2 /*return*/];
+                            }
+                        });
                     });
-                }); });
+                });
             });
         }
         var decrementCountdown = function () {
@@ -466,7 +468,7 @@ var CommandHandler = /** @class */ (function () {
                                 item = split[a];
                                 option = {
                                     name: item.replace(/ /g, "-").toLowerCase(),
-                                    description: item,
+                                    description: (options === null || options === void 0 ? void 0 : options[a]) ? options[a].description : item,
                                     // @ts-ignore
                                     type: (options === null || options === void 0 ? void 0 : options[a]) ? options[a].type : slashCommands_1.getOptionFromName("STRING"),
                                     required: a < minArgs,
