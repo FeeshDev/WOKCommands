@@ -71,6 +71,8 @@ var SlashCommands = /** @class */ (function () {
                             case 2:
                                 Appdata = data;
                                 name = Appdata.name, options = Appdata.options, resolved = Appdata.resolved;
+                                if (!name)
+                                    return [2 /*return*/];
                                 guild = guild_id ? this._client.guilds.cache.get(guild_id) : undefined;
                                 args = this.getArrayFromOptions(guild, name, options, resolved);
                                 channel = channel_id ? guild === null || guild === void 0 ? void 0 : guild.channels.cache.get(channel_id) : undefined;
