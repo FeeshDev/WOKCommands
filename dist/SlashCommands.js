@@ -582,7 +582,7 @@ var SlashCommands = /** @class */ (function () {
                                 });
                             });
                         };
-                        interaction.reply = function (data) {
+                        interaction.reply = function (data, components) {
                             return __awaiter(_this, void 0, void 0, function () {
                                 var DataToSend, respond, DataToSend, respond, respondMessage;
                                 return __generator(this, function (_a) {
@@ -598,6 +598,7 @@ var SlashCommands = /** @class */ (function () {
                                             } else {
                                                 DataToSend = data;
                                             }
+                                            if (components) DataToSend.components = components;
                                             return [4 /*yield*/, this.editInteractionResponse(interaction, DataToSend)];
                                         case 1:
                                             respond = _a.sent();
@@ -614,6 +615,7 @@ var SlashCommands = /** @class */ (function () {
                                             } else {
                                                 DataToSend = data;
                                             }
+                                            if (components) DataToSend.components = components;
                                             return [4 /*yield*/, this.createInteractionResponse(interaction, 4, DataToSend)];
                                         case 3:
                                             respond = _a.sent();
@@ -629,7 +631,7 @@ var SlashCommands = /** @class */ (function () {
                                 });
                             });
                         };
-                        interaction.edit = function (data) {
+                        interaction.edit = function (data, components) {
                             return __awaiter(_this, void 0, void 0, function () {
                                 var DataToSend, respond;
                                 return __generator(this, function (_a) {
@@ -643,6 +645,7 @@ var SlashCommands = /** @class */ (function () {
                                             } else {
                                                 DataToSend = data;
                                             }
+                                            if (components) DataToSend.components = components;
                                             return [4 /*yield*/, this.editInteractionResponse(interaction, DataToSend)];
                                         case 1:
                                             respond = _a.sent();
